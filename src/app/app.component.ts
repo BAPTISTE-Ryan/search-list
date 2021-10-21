@@ -11,7 +11,7 @@ import { map, filter } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   users$: Observable<IUser[]>;
   filteredUsers$: Observable<IUser[]>;
-  searchValue:string;
+  searchValue: string;
 
   constructor(private api: ApiService) {}
   ngOnInit() {
@@ -23,13 +23,19 @@ export class AppComponent implements OnInit {
     // a boolean flag to turn each one on/off for a list of any size
     user.show = !user.show;
   }
-  addUSer() {
-   const consta =this.api.addUser(this.searchValue);
-    this.filteredUsers$ = consta;
-    this.users$ = consta;
+  deleteUSer() { 
+    // global list
+    this.users$ = this.api.deleteUser(this.searchValue);
+    // results to show
+    this.filteredUsers$ = this.users$  ;
   }
+  addUSer() { 
+    this.users$ = this.api.addUser(this.searchValue);
+    this.filteredUsers$ = this.api.showOneUSer();
+  }
+
   search(value: string) {
-    this.searchValue=value;
+    this.searchValue = value;
     if (value) {
       this.filteredUsers$ = this.users$.pipe(
         // the stream is of a single item that is of type array
