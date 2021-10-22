@@ -93,7 +93,7 @@ export class ApiService {
             'name ' + usert[a].name + ' position ' + a + usert.length
           );
         }
-        console.log(a);
+        console.log("a"+a);
       }else{
         usert.splice(0,1);
       }
