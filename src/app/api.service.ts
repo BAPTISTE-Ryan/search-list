@@ -88,6 +88,7 @@ export class ApiService {
       console.log("length"+usert.length);
       if (usert.length != 1) {
         if (usert[a].name == name) {
+          console.log('in');
           usert.splice(a, 1);
           console.log(
             'name ' + usert[a].name + ' position ' + a + usert.length
