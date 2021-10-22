@@ -3,6 +3,8 @@ import { ApiService } from './api.service';
 import { IUser } from './user';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -13,7 +15,7 @@ export class AppComponent implements OnInit {
   filteredUsers$: Observable<IUser[]>;
   searchValue: string;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router: Router) {}
   ngOnInit() {
     this.users$ = this.api.getUsers();
     this.filteredUsers$ = this.users$;
@@ -23,17 +25,20 @@ export class AppComponent implements OnInit {
     // a boolean flag to turn each one on/off for a list of any size
     user.show = !user.show;
   }
-  deleteUSer() { 
+  deleteUSer() {
     // global list
     this.users$ = this.api.deleteUser(this.searchValue);
     // results to show
-    this.filteredUsers$ = this.users$  ;
+    this.filteredUsers$ = this.users$;
   }
-  addUSer() { 
+  addUSer() {
     this.users$ = this.api.addUser(this.searchValue);
     this.filteredUsers$ = this.api.showOneUSer();
   }
-
+  routab() {
+    console.log('en route');
+    this.router.navigate(['/routab']);
+  }
   search(value: string) {
     this.searchValue = value;
     if (value) {

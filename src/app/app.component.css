@@ -25,6 +25,15 @@ li {
   list-style: none;
 }
 
+.yoy {
+  background: #ccf;
+  padding: 8px;
+  border: 2px solid #558;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 2px rgb(138, 145, 148);
+  font-size: 2.0rem;
+  list-style: none;
+}
 
 .user:hover {
   color: #fff;
