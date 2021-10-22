@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from './user';
+import { IUserUnitary } from './usercomplete';
 import { stringify } from '@angular/compiler/src/util';
 
 @Injectable()
@@ -53,14 +54,21 @@ export class ApiService {
 
     let userv: [any] = JSON.parse(localStorage.getItem('testJSON'));
     let usert = <any>userv;
-    const usernew = <any>userv[0];
-    usernew.name = name;
-    usert.push(usernew);
-    //if()
-    console.log(usert.splice(0, 1));
+    //const usernew = <any>userv[0]; bidirectiona assignation 
+    const usernew = { ...userv[0] };
+    //
 
+    usernew.name = name;
+    ///
+    usert.push(usernew);
+    ///
+    //if()
+    console.log(usert);
+    //console.log(usert.splice(0, 1));
+    //usert.splice(0, 1)
     console.log(usert.length - 1);
 
+    console.log(usert);
     localStorage.setItem('testJSON', JSON.stringify(usert));
 
     const myObservable = new Observable<any>((observer) => {
@@ -74,10 +82,11 @@ export class ApiService {
     let locals = localStorage.getItem('testJSON');
     let userv: [any] = JSON.parse(localStorage.getItem('testJSON'));
     let usert = <any>userv;
+
     let i: number;
     for (let a in usert) {
-    
-      if (usert.length != 0) {
+      console.log("length"+usert.length);
+      if (usert.length != 1) {
         if (usert[a].name == name) {
           usert.splice(a, 1);
           console.log(
@@ -85,10 +94,12 @@ export class ApiService {
           );
         }
         console.log(a);
+      }else{
+        usert.splice(0,1);
       }
-      console.log("------");
+      console.log('------');
       console.log(usert);
-      console.log("======");
+      console.log('======');
     }
 
     console.log(usert.length - 1);
