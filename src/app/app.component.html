@@ -23,7 +23,7 @@
   <input
     class="search-box"
     placeholder="start typing to narrow search"
-    (keyup)="search($event.target.value)"
+    (keyup)="search($event.target.value);p=1"
     type="text"
   />
   <router-outlet></router-outlet>

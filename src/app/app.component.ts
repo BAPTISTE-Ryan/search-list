@@ -7,9 +7,8 @@ import { map, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 @Pipe({
   name: 'paginate',
-  pure: false
+  pure: false,
 })
-
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -52,10 +51,6 @@ export class AppComponent implements OnInit {
 
     this.router.navigate(['/']);
   }
-  @Pipe({
-  name: 'xxx',
-  pure: false
-})
 
   search(value: string) {
     this.searchValue = value;
