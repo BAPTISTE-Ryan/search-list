@@ -10,6 +10,7 @@
     "@angular/platform-browser": "^8.0.0",
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
+    "@ngneat/transloco": "^2.23.2",
     "core-js": "2",
     "ngx-pagination": "^5.1.1",
     "rxjs": "^6.5.2",

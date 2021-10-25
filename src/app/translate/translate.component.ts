@@ -17,9 +17,15 @@ export class TranslateComponent implements OnInit {
   inc(i: number) {
     this.minutes = Math.min(5, Math.max(0, this.minutes + i));
   }
-  male() { this.gender = 'male'; }
-  female() { this.gender = 'female'; }
-  other() { this.gender = 'other'; }
+  male() {
+    this.gender = 'male';
+  }
+  female() {
+    this.gender = 'female';
+  }
+  other() {
+    this.gender = 'other';
+  }
 
   ngOnInit() {
     console.log('inside translate 01');
@@ -38,6 +44,7 @@ export class TranslateComponent implements OnInit {
     console.log('inside translate logout  01');
     //this.authService.logout();
   }
+  /////////////////////////////////////////////////////////////////////////////
 }
 
 // router.navigate method takes elements which configure the path as arguments
