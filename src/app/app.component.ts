@@ -6,7 +6,7 @@ import { map, filter } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 @Pipe({
-  name: 'paginate',
+  name: 'paginate', 
   pure: false,
 })
 @Component({
