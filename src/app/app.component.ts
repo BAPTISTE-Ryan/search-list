@@ -46,6 +46,11 @@ export class AppComponent implements OnInit {
     console.log(this.p);
     this.router.navigate(['/routab']);
   }
+  translate() {
+    console.log('en translatation');
+    console.log(this.p);
+    this.router.navigate(['/translate']);
+  }
   home() {
     console.log('en home');
 

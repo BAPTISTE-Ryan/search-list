@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RoutabComponent } from './translate.component';
+import { TranslateComponent } from './translate.component';
 
 const routesT: Routes = [
   {
