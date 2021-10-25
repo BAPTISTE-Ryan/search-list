@@ -4,7 +4,7 @@ import { RoutabRoutingModule } from './routab-routing.module';
 import { RoutabComponent } from './routab.component';
 
 @NgModule({
-  imports: [CommonModule, CommonModule, RoutabComponent],
-  declarations: [RoutabComponent, RoutabComponent],
+  imports: [CommonModule, RoutabRoutingModule],
+  declarations: [RoutabComponent],
 })
 export class RoutabModule {}

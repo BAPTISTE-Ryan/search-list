@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RoutabComponent } from './routab/routab.component';
 
-const appRoutes: Routes = [
+const routes: Routes = [
   {
     path: 'routab',
     loadChildren: () =>
@@ -13,8 +13,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(routes)],
 
   exports: [RouterModule],
+  providers: [],
 })
 export class AppRoutingModule {}

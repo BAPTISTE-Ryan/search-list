@@ -5,12 +5,12 @@ import { RoutabComponent } from './routab.component';
 const routes: Routes = [
   {
     path: '',
-    component: RoutabComponent
-  }
+    component: RoutabComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule],
+  exports: [RouterModule],
 })
 export class RoutabRoutingModule {}
