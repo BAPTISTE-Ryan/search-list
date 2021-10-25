@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { ApiService } from './api.service';
 import { IUser } from './user';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
+@Pipe({
+  name: 'paginate',
+  pure: false
+})
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -14,6 +19,7 @@ export class AppComponent implements OnInit {
   users$: Observable<IUser[]>;
   filteredUsers$: Observable<IUser[]>;
   searchValue: string;
+  p: number;
 
   constructor(private api: ApiService, private router: Router) {}
   ngOnInit() {
@@ -32,18 +38,25 @@ export class AppComponent implements OnInit {
     this.filteredUsers$ = this.users$;
   }
   addUSer() {
+    this.p = 1;
     this.users$ = this.api.addUser(this.searchValue);
     this.filteredUsers$ = this.api.showOneUSer();
   }
   routab() {
     console.log('en route');
+    console.log(this.p);
     this.router.navigate(['/routab']);
   }
   home() {
     console.log('en home');
+
     this.router.navigate(['/']);
   }
-  
+  @Pipe({
+  name: 'xxx',
+  pure: false
+})
+
   search(value: string) {
     this.searchValue = value;
     if (value) {

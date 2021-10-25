@@ -11,8 +11,14 @@
   </div>
   <button class="yoy" (click)="[addUSer()]">create</button>
   <button class="yoy" (click)="[deleteUSer()]">delete</button>
-  <button class="yoy" (click)="[routab()]">routab</button>
-  <button class="yoy" (click)="[home()]">home</button>
+  <button class="yoy" (click)="[routab(),p=2]">routab</button>
+
+  <button class="yoy"  (click)="[home()]">
+    home 
+     
+  </button>
+
+ 
 
   <input
     class="search-box"
@@ -22,8 +28,8 @@
   />
   <router-outlet></router-outlet>
   <ul>
-    <li *ngFor="let user of filteredUsers$ | async">
-      <h2 class="user" (click)="showHide(user)">{{ user.name }}</h2>
+    <li *ngFor="let user of filteredUsers$ |async| paginate:{ itemsPerPage: 2, currentPage: p}">
+      <h2 class="user" (click)="[showHide(user),p=1]">{{ user.name }}</h2>
 
       <div class="collapse-able" *ngIf="user.show">
         <p>{{ user.address.street }}</p>
@@ -35,4 +41,5 @@
       </div>
     </li>
   </ul>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

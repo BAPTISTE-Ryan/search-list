@@ -4,14 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { RoutabComponent } from './routab/routab.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 
 import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgxPaginationModule,
+  ],
   providers: [ApiService],
   bootstrap: [AppComponent],
 })
