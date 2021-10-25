@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RoutabComponent } from './routab.component';
 
-const routes: Routes = [
+const routesR: Routes = [
   {
     path: '',
     component: RoutabComponent,
@@ -10,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule],
+  imports: [RouterModule.forChild(routesR)],
   exports: [RouterModule],
 })
 export class RoutabRoutingModule {}

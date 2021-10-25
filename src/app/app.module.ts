@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 
 @NgModule({
-  declarations: [AppComponent, RoutabComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   providers: [ApiService],
   bootstrap: [AppComponent],

@@ -8,8 +8,13 @@ const routes: Routes = [
   {
     path: 'routab',
     loadChildren: () =>
-      import('./routab/routab.module').then((m) => m.RoutabModule),
-  },
+      import('./routab/routab.module').then(m => m.RoutabModule)
+  }, 
+  {
+    path: '',
+    redirectTo:'',
+    pathMatch:'full'
+  }
 ];
 
 @NgModule({

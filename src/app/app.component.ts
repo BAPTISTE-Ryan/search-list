@@ -39,6 +39,11 @@ export class AppComponent implements OnInit {
     console.log('en route');
     this.router.navigate(['/routab']);
   }
+  home() {
+    console.log('en home');
+    this.router.navigate(['/']);
+  }
+  
   search(value: string) {
     this.searchValue = value;
     if (value) {
