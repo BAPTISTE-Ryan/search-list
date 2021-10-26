@@ -5,6 +5,7 @@ import { TranslateComponent } from './translate.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -14,6 +15,8 @@ export function translateHttpLoaderFactory(http: HttpClient) {
   imports: [
     HttpClientModule,
     CommonModule,
+    FormsModule,  
+    ReactiveFormsModule , 
     TranslateRoutingModule,
     TranslateModule.forRoot({
       loader: {

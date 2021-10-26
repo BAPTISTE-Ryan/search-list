@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 //import {AuthService} from '../auth.service';
 
 @Component({
@@ -57,7 +58,44 @@ export class TranslateComponent implements OnInit {
     console.log('inside translate logout  01');
     //this.authService.logout();
   }
+  websiteList: any = ['FrLang', 'EnLang', 'DeLang'];
+
+  form = new FormGroup({ website: new FormControl('', Validators.required) });
+  get f() {
+    return this.form.controls;
+  }
+  submit() {
+    console.log(this.form.value);
+  }
   /////////////////////////////////////////////////////////////////////////////
+
+  changeWebsite(e) {
+    const foo = {
+      results: [
+        {
+          tag: 'FrLang',
+          name: 'fr',
+        },
+        {
+          tag: 'EnLang',
+          name: 'en',
+        },
+        {
+          tag: 'DeLang',
+          name: 'de',
+        },
+      ],
+    };
+    console.log(e.target.value);
+    let er = e.target.value;
+    let ae = foo.results.find((item) => item.tag == er);
+    console.log('==');
+    console.log('ae' + ae.name);
+
+    
+    console.log('==');
+    this.translateService.use(ae.name);
+  }
 }
 
 // router.navigate method takes elements which configure the path as arguments

@@ -4,16 +4,50 @@
   Hello i18n!
 </h1>
 <div>
-<div translate>RandomMessage</div>
+  <div translate>RandomMessage</div>
 
-<button (click)="switchLanguage('en')">English</button>
-<button (click)="switchLanguage('de')">German</button>
-<button (click)="switchLanguage('fr')">Francais</button>
+  <button translate (click)="switchLanguage('en')">EnLang</button>
+  <button translate (click)="switchLanguage('de')">DeLang</button>
+  <button translate (click)="switchLanguage('fr')">FrLang</button>
+
+  <select>
+    <option translate value="books">FrLang</option>
+    <option translate value="html">EnLang</option>
+    <option translate value="css">DeLang</option>
+  </select>
+  <!--//////////////////////////////////////-->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="website">Website:</label>
+      <select
+        formControlName="website"
+        class="form-control"
+        (change)="changeWebsite($event)"
+      >
+        <option disabled>Select Website</option>
+        <option>select lang</option>
+        <option *ngFor="let web of websiteList">
+          <div>{{ web }}</div>
+        </option>
+      </select>
+      <div
+        *ngIf="f.website.touched && f.website.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.website.errors.required">Name is required.</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+  <!--/////////////////////////////////////-->
 </div>
 
 <ng-container i18n>I don't output any element</ng-container>
 
-<p> 
+<p>
   <br />
 
   <img hidden [src]="logo" i18n-title title="Angular logo" />
