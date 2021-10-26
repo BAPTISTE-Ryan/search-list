@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 //import {AuthService} from '../auth.service';
 
 @Component({
@@ -8,8 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./translate.component.css'],
 })
 export class TranslateComponent implements OnInit {
-  constructor(private router: Router) {}
-
+  constructor(
+    private router: Router,
+    private translateService: TranslateService
+  ) {
+    translateService.addLangs(['en']);
+    translateService.addLangs(['fr']);
+    translateService.setDefaultLang('en');
+  }
+  name = 'Angular';
   minutes = 0;
   gender = 'female';
   fly = true;
@@ -33,6 +41,11 @@ export class TranslateComponent implements OnInit {
   onLoadServers(id: number) {
     console.log('inside translate onload servers 01');
     // this.router.navigate(['/servers',id,'edit'],{queryParams:{allowedit:id},fragment:'loading'});
+  }
+
+  switchLanguage(language: string) {
+    console.log(language);
+    this.translateService.use(language);
   }
 
   onLogIn() {

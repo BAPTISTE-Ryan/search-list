@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'translate',
     loadChildren: () =>
-      import('./translate/translate.module').then((m) => m.TranslateModule),
+      import('./translate/translate.module').then((m) => m.TranslatedModule),
   },
   {
     path: '',
