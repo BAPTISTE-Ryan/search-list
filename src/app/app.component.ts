@@ -22,7 +22,16 @@ export class AppComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router) {}
   ngOnInit() {
-    this.users$ = this.api.getUsers();
+    this.users$ = this.api.addUser("jean amnger");
+    this.users$ = this.api.addUser("michel du");
+    this.users$ = this.api.addUser("duchateau pain");
+    this.users$ = this.api.addUser("deverlan carre");
+    this.users$ = this.api.addUser("aude faire");
+    this.users$ = this.api.addUser("francois du");
+    this.users$ = this.api.addUser("aurelien bien");
+    this.users$ = this.api.addUser("margault aucorps");
+
+   // this.users$ = this.api.getUsers();
     this.filteredUsers$ = this.users$;
   }
   showHide(user: IUser) {
