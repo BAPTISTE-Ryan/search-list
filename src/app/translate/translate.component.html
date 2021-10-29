@@ -1,0 +1,78 @@
+<h1
+  i18n="User welcome|An introduction header for this sample@@introductionHeader"
+>
+  Hello i18n!
+</h1>
+<div>
+  <div translate>RandomMessage</div>
+
+  <button translate (click)="switchLanguage('en')">EnLang</button>
+  <button translate (click)="switchLanguage('de')">DeLang</button>
+  <button translate (click)="switchLanguage('fr')">FrLang</button>
+
+  <select>
+    <option translate value="books">FrLang</option>
+    <option translate value="html">EnLang</option>
+    <option translate value="css">DeLang</option>
+  </select>
+  <!--//////////////////////////////////////-->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="website">Website:</label>
+      <select
+        formControlName="website"
+        class="form-control"
+        (change)="changeWebsite($event)"
+      >
+        <option disabled>Select Website</option>
+        <option>select lang</option>
+        <option *ngFor="let web of websiteList">
+          <div>{{ web }}</div>
+        </option>
+      </select>
+      <div
+        *ngIf="f.website.touched && f.website.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.website.errors.required">Name is required.</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+  <!--/////////////////////////////////////-->
+</div>
+
+<ng-container i18n>I don't output any element</ng-container>
+
+<p>
+  <br />
+
+  <img hidden [src]="logo" i18n-title title="Angular logo" />
+  <br />
+  <button (click)="inc(1)">+</button> <button (click)="inc(-1)">-</button>
+  <span i18n
+    >Updated {minutes, plural, =0 {just now} =1 {one minute ago} other
+    {{{minutes}} minutes ago}}</span
+  >
+  ({{ minutes }}) <br /><br />
+
+  <button (click)="male()">&#9794;</button>
+  <button (click)="female()">&#9792;</button>
+  <button (click)="other()">&#9895;</button>
+
+  <span i18n
+    >The author is {gender, select, male {male} female {female} other
+    {other}}</span
+  >
+
+  <br /><br />
+
+  <span i18n
+    >Updated: {minutes, plural, =0 {divide by zero} =1 {singularity} =2 {spin up
+    spin down} =3 {quarks} =4 {fundamental forces} other {{{minutes}} minutes
+    ago by {gender, select, male {male} female {female} other {other}}}}
+  </span>
+</p>

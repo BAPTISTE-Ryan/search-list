@@ -1,18 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import {APP_BASE_HREF} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ApiService } from './api.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgxPaginationModule,RouterModule
+
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports:[],
+  providers: [ApiService,{provide: APP_BASE_HREF, useValue: '/'}],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+
+// this is the monday commit
