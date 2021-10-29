@@ -1,6 +1,27 @@
 <div class="container">
   <header>
     <h1>Angular Filter Search Demo</h1>
+    <div class="center">
+  <!---->
+  <span>
+    <pagination-template
+      #g="paginationApi"
+      (pageChange)="p = $event"
+      (pageBoundsCorrection)="pageBoundsCorrection.emit($event)"
+    >
+
+      <span
+        *ngFor="let page of g.pages"
+        [class.current]="g.getCurrent() === page.value"
+      >
+        <a class="newbutton2" *ngIf="g.getCurrent() === page.value">
+          <span>  {{ page.label }}  </span>
+        </a>
+      </span>
+    </pagination-template>
+  </span>
+  <!---->
+    </div>
   </header>
 
   <div>
@@ -29,7 +50,7 @@
       *ngFor="
         let user of filteredUsers$
           | async
-          | paginate: { itemsPerPage: 8, currentPage: p }
+          | paginate: { itemsPerPage: 5, currentPage: p }
       "
     >
       <!--| paginate: { itemsPerPage: 5, currentPage: p }-->
@@ -93,4 +114,5 @@
   </span>
   <!---->
 </div>
+
 </div>
